@@ -14,17 +14,15 @@ public class Main {
                 String id = scanner.next();
                 int pages = scanner.nextInt();
 
-                switch (type) {
-                    case "MONO":
-                        jobs.add(new MonoPrint(id, pages));
-                        break;
-                    case "COLOUR":
-                        jobs.add(new ColourPrint(id, pages));
-                        break;
-                    default:
-                        throw new IllegalArgumentException("Unknown job type: " + type);
+                if (type.equals("MONO")) {
+                    jobs.add(new MonoPrint(id, pages));
+                } else if (type.equals("COLOUR")) {
+                    jobs.add(new ColourPrint(id, pages));
+                } else {
+                    throw new IllegalArgumentException("Unknown job type: " + type);
                 }
             }
+
         } catch (FileNotFoundException e) {
             System.err.println("jobs.txt not found in the working directory.");
             return;
