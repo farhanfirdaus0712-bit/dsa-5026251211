@@ -56,17 +56,26 @@ public class Main {
         }
     }
 
+    
+        
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(Main.class.getResourceAsStream("treenumbers.txt"));
 
-        String[] values = sc.nextLine().trim().split("\\s+");
-        int target = Integer.parseInt(sc.nextLine().trim());
+        // Write your main code here
+        String firstLine = sc.nextLine();
+        String[] numbers = firstLine.split(" ");
 
         Node root = null;
-        for (String v : values) {
-            root = insert(root, Integer.parseInt(v));
+
+        for (int i = 0; i < numbers.length; i++) {
+            int value = Integer.parseInt(numbers[i]);
+            root = insert(root, value);
         }
 
+        int target = sc.nextInt();
+
+    
         System.out.print("Preorder : ");
         preorder(root);
         System.out.println();
@@ -83,4 +92,7 @@ public class Main {
 
         sc.close();
     }
-}
+        }
+    
+
+

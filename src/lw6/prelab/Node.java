@@ -1,4 +1,4 @@
-package src.lw6.unguided;
+package src.lw6.prelab;
 
 class Node {
     int data;
